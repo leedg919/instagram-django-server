@@ -7,3 +7,19 @@ from common.models import CommonModel
 #FEED
 class Review(CommonModel):
     caption = models.CharField(max_length=150)
+    
+    user = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        # user => review
+        # user.review_set.all() -> user.reviews.all()
+        related_name="reviews"
+    )
+    
+    feed = models.ForeignKey(
+        "feeds.Feed",
+        on_delete=models.CASCADE,
+        # feed => review
+        # feed.reviews.all()
+        related_name="reviews"
+    )
