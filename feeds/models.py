@@ -10,7 +10,7 @@ from common.models import CommonModel
 
 class Feed(CommonModel):
     caption = models.CharField(max_length=1000,default="") #게시글내용
-    contentImg = models.URLField(blank=True) #게시글이미지
+    contentImg = models.URLField(max_length=400, blank=True) #게시글이미지
     likesNum = models.PositiveBigIntegerField(default=0) #좋아요갯수
     reviewsNum = models.PositiveBigIntegerField(default=0) #댓글갯수
     
